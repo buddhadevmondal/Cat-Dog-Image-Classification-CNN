@@ -100,8 +100,3 @@ Add verified test-set accuracy and evaluation metrics after testing the saved mo
 
 GitHub: https://github.com/buddhadevmondal
 
-## 📄 License
-
-Add an appropriate license if you want to permit others to reuse, modify, or distribute this project.
-# Cat-Dog-Image-Classification-CNN
-CNN-based Cat and Dog Image Classification using PyTorch and deep learning. Includes model training, evaluation, a saved trained model, and a prediction interface.

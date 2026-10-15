@@ -96,7 +96,7 @@ Add verified test-set accuracy and evaluation metrics after testing the saved mo
 
 ## 👨‍💻 Author
 
-**Your Name**
+**Budhadev Mondal**
 
 GitHub: https://github.com/buddhadevmondal
 

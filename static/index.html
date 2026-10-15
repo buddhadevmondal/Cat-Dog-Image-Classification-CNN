@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c1117">
+  <title>Cat or Dog · AI photo classifier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <div class="brand"><span class="logo" aria-hidden="true">🐾</span> PawScan</div>
+    <div id="status" class="pill" role="status"><i></i><span>Connecting…</span></div>
+  </header>
+
+  <main class="grid">
+    <section class="intro">
+      <p class="eyebrow">Deep learning · CNN</p>
+      <h1>Is it a <em class="c">cat</em> or a <em class="d">dog</em>?</h1>
+      <p class="lead">Drop in any pet photo. A convolutional neural network trained on 25,000 images gives you its answer and how sure it is.</p>
+      <ol class="steps">
+        <li><b>1</b><span>Upload, drop or paste a photo</span></li>
+        <li><b>2</b><span>The model scans it at 128 × 128</span></li>
+        <li><b>3</b><span>See the verdict and probabilities</span></li>
+      </ol>
+      <div class="hist" id="histWrap" hidden>
+        <p class="eyebrow">Recent</p>
+        <div id="hist" class="thumbs"></div>
+      </div>
+    </section>
+
+    <section class="stage" aria-label="Classifier">
+      <div id="drop" class="drop" tabindex="0" role="button" aria-label="Choose, drop or paste an image">
+        <i class="k tl"></i><i class="k tr"></i><i class="k bl"></i><i class="k br"></i>
+        <img id="preview" alt="Your photo" hidden>
+        <div id="beam" class="beam" hidden></div>
+        <div id="hint" class="hint">
+          <svg viewBox="0 0 48 48" width="46" height="46" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 33V13M15 21l9-9 9 9"/><path d="M8 33v5a3 3 0 0 0 3 3h26a3 3 0 0 0 3-3v-5"/></svg>
+          <strong>Drop a photo or click to upload</strong>
+          <span>You can also paste with Ctrl + V · JPG, PNG, WEBP · max 8 MB</span>
+        </div>
+        <div id="busy" class="busy" hidden>Analyzing…</div>
+      </div>
+      <input id="file" type="file" accept="image/*" hidden>
+
+      <div id="result" class="result" aria-live="polite" hidden>
+        <div class="top">
+          <div>
+            <p class="eyebrow">Verdict</p>
+            <h2 id="verdict" class="verdict">–</h2>
+          </div>
+          <div class="score"><b id="score">0</b><small id="scoreLbl">% sure</small></div>
+        </div>
+        <div class="meter" role="img" aria-label="Probability scale from cat to dog">
+          <div id="marker" class="marker"></div>
+        </div>
+        <div class="legend"><span class="c">Cat <b id="pCat">–</b></span><span class="d"><b id="pDog">–</b> Dog</span></div>
+        <p id="note" class="note" hidden>Low confidence. Try a clearer photo with a single animal in frame.</p>
+      </div>
+
+      <p id="error" class="error" role="alert" hidden></p>
+      <button id="again" class="btn" type="button" hidden>Try another photo</button>
+    </section>
+  </main>
+
+  <footer class="foot">The model only knows cats and dogs. When it is not confident, it answers "Neither".</footer>
+</div>
+<script src="/static/script.js"></script>
+</body>
+</html>
